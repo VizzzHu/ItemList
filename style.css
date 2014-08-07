@@ -1,0 +1,25 @@
+table {
+    width: 100%
+}
+
+td, th {
+    border-top: 1px solid gray;
+    border-collapse: collapse;
+    height: 15px;
+}
+
+thead {
+    font-size:12px;
+    color:gray;
+}
+
+/*input, select, textarea{*/
+    /*color: gray;*/
+/*}*/
+
+textarea:focus, input:focus {
+    color: blue;
+}
+
+
+
