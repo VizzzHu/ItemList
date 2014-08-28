@@ -66,8 +66,8 @@
       <file leaf-file-name="backbone" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backbone">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.65543646" vertical-offset="2452" max-vertical-offset="3105">
-              <caret line="192" column="47" selection-start-line="192" selection-start-column="47" selection-end-line="192" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.4027565" vertical-offset="2557" max-vertical-offset="3330">
+              <caret line="188" column="35" selection-start-line="188" selection-start-column="35" selection-end-line="188" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -464,8 +464,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backbone">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65543646" vertical-offset="2452" max-vertical-offset="3105">
-          <caret line="192" column="47" selection-start-line="192" selection-start-column="47" selection-end-line="192" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.4027565" vertical-offset="2557" max-vertical-offset="3330">
+          <caret line="188" column="35" selection-start-line="188" selection-start-column="35" selection-end-line="188" selection-end-column="35" />
           <folding />
         </state>
       </provider>

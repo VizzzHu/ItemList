@@ -198,5 +198,20 @@ fetch: collection.fetch([options])
 create: collection.create(attributes, [options])
 
 /************************** View ********************************/
+extend: Backbone.View.extend()
+
+constructor/initialize: new View([options])
+
+// apply a Backbone view to a different DOM element
+setElement view.setElement(element)
+
+// removes a view from the DOM
+remove: view.remove()
+
+delegateEvents: delegateEvents([events])
+
+// remove all of the view's delegated events.
+undelegateEvents: undelegateEvents()
+
 /************************** Events ********************************/
 /************************** Router ********************************/
