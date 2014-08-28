@@ -31,10 +31,7 @@ var PriceList = Backbone.Model.extend({
     }
 });
 
-var PriceLists = Backbone.Collection.extend({
-    Model: PriceList,
-    url: '#'
-});
+
 
 
 

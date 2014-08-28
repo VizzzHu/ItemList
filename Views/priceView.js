@@ -36,14 +36,16 @@ var PriceView = Backbone.View.extend({
             newItem.attributes[eachInputBox.id] = eachInputBox.value;
         });
 
-        _.each(this.collection.models, function(eachModel) {
-            if (_.isEqual(newItem.attributes, eachModel.attributes)) {
-               existingModel = true;
-            };
-        });
+        existingModel = this.collection.addModel(newItem);
+
+//        _.each(this.collection.models, function(eachModel) {
+//            if (_.isEqual(newItem.attributes, eachModel.attributes)) {
+//               existingModel = true;
+//            };
+//        });
 
         if (!existingModel) {
-            this.collection.add(newItem);
+ //           this.collection.add(newItem);
             this.addItem(newItem);
             this.$('.listTableForNewItem').empty();
         } else {

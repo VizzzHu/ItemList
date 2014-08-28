@@ -1,0 +1,202 @@
+/************************** Model ********************************/
+
+constructor/initialize
+
+get: model.get(attribute)
+
+set: model.set(attributes, [options])
+
+// similar as get but HTML-escaped version
+escape: model.escape(attribute)
+
+has: model.has(attribute)
+
+unset: model.unset(attribute, [options])
+
+// remove all attributes
+clear: model.clear([options])
+
+id: model.id
+
+// try to change uniq id
+idAttribute: model.idAttribute
+
+cid: model.cid
+
+// use set to update attributes
+attributes: model.attributes
+
+// a copy of changed: changedAttributes
+changed: model.changed
+
+defaults: model.defaults/model.defaults()
+
+//JSON.stringify(model)
+toJSON: model.toJSON([options])
+
+// to persist the state of a model to the server
+sync: model.sync(method, model, [options])
+
+// reset the model's state from the server
+fetch: model.fetch([options])
+
+// save a model to your database
+save: model.save([attributes], [options])
+
+// destroys the model on the server
+destroy: model.destroy([options])
+
+//Underscore methods
+keys: _.key({one:1, two:2, three:3}) => ["one", "two", "three"]
+values: _.values({one:1, two:2, three:3}) => [1, 2, 3]
+pairs: _.pairs({one:1, two:2, three:3}) => [["one", 1], ["two", 2], ["three", 3]]
+invert: _.invert({Moe: "Moses", Larry: "Louis"}) => {Moses: "Moe", Louis: "Larry"}
+pick: _.pick({name: 'moe', age: 50}, 'name') => {name: 'moe'}
+omit: _.omit({name: 'moe', age: 50}, 'name') => {age: 50}
+
+// called before save, or set if {validate:true} is passed
+// "invalid" can be called
+validate: model.validate(attributes, options)
+
+// is like "invalid"
+isValid: model.isValid()
+
+// the relative url where the model's resource would be located on the server.
+//[collection.url]/[id]
+url: model.url()
+
+// [urlRoot]/id
+urlRoot: model.urlRoot / model.urlRoot()
+
+//?
+parse: model.parse(response, options)
+
+// has this model been saved to the server yet?
+//if the model does not yet have an id, it considered to be new
+isNew: model.isNew()
+
+// has the model changed since the last set
+hasChanged: model.hasChanged([attribute])
+
+// has only the model's attributes changed or not
+changedAttributes: model.changedAttributes([attributes])
+
+// during a "change" event, this method can be used to get the previous
+// value of a changed attribute
+previous: model.previous(attribute)
+
+// Return a copy of the model's previous attributes
+previousAttributes: model.previousAttributes()
+
+/************************** Collection ********************************/
+
+// can also contain polymorphic models
+model: collection.model
+
+constructor/initialize
+
+models: collection.models
+
+//JSON.stringify(collection)
+toJSON: collection.toJSON([options])
+
+// to persist the state of a collection to the server
+sync: collection.sync(method, collection, [options])
+
+
+//Underscore Methods
+map: _.map([1,2,3], function(num) {return num * 3;}) => [3,6,9]
+reduce: sum = _.reduce([1,2,3], function(memo, num){return memo+num;},0);
+reject: _.reject([1,2,3], function(num){return num%2==0;}) => [1,3]
+//return true if all the values in the list pass the predicate truth test
+every: _.every(list, [predicate], [context]) // every is true, then true
+some: // only one list element returns true, then true
+contains: _.contains([1,2,3], 3) => true
+invoke: _.invoke([5,1,7], [3,2,1],"sort") => [[1,5,7], [1,2,3]]
+sortBy: _.sortBy([1,2,3,4,5,6], function(num){return Math.sin(num);}) => [5,4,6,3,1,2]
+groupBy: _.groupBy([1.3, 2.1, 2.4], function(num){return Math.floor(num);}) => {1:[1.3], 2:[2.1, 2.4]}
+shuffle: _.shuffle([1,2,3,4]) => [4,2,1,3] // just randomly
+toArray: _.toArray(list)
+size: _.size({one:1, two:2, three:3}) => 3
+first: _.first([5,4,3]) => 5
+initial: _.initial([5,4,3,2,1]) => [5,4,3,2] // return everything but the last one
+rest: _.rest([5,4,3,2,1]) => [4,3,2,1] // return everything but the first one
+last: _.last([5,4,3,2,1]) => 1
+without: _.without([1,2,3], 3) => [1,2]
+indexOf: _.indexOf([1,2,3], 2) => 1
+lastIndexOf: _.lastIndexOf([1,2,3,1,2,3],2) => 4 // return the last index of the element
+isEmpty: _.isEmpty([1,2,3]) => false/ _.isEmpty({}) => true
+chain: var stooges = [{name: 'curly', age: 25}, {name: 'moe', age: 21}, {name: 'larry', age: 23}];
+       var youngest = _.chain(stooges)
+         .sortBy(function(stooge){ return stooge.age; })
+         .map(function(stooge){ return stooge.name + ' is ' + stooge.age; })
+         .first()
+         .value();
+       => "moe is 21"
+
+add: collection.add(models, [options])
+remove: collection.remove(models, [options])
+
+// replace a collection with a new list of models
+reset: collection.reset([models], [options])
+
+// "add" new models
+// "remove" no existed models
+// "merge/update" the same models
+set: collection.set(models, [options])
+
+get: collection.get(id)
+
+at: collection.at(index)
+
+// add amodel at the end of a collection. Takes the options as add
+push: collection.push(model, [options])
+
+// remove and return the last model from a collections
+pop: collection.pop([options])
+
+// add a model at the beginning of a collections
+unshift: collection.unshift(model, [options])
+
+// remove and return the first model from a collection
+shift: collection.shift([options])
+
+// return a shallow of the collection's models
+slice: collection.slice(begin, end)
+
+// models are sorted based on the attribute
+comparator: collection.comparator = 'attribute';
+
+sort: collection.sort([options])
+
+pluck: collection.pluck(attribute)
+
+// return an array of all the models in a collection
+// that match the passed attributes (filter)
+where: collection.where(attributes)
+
+// return the first one match the passed attributes
+findWhere:collection.findWhere(attributes)
+
+url: collection.url / collection.url()
+
+// passed a raw response, return the array of model attributes
+// to be added to the collection
+// for API
+parse: collection.parse(response, options)
+
+// return a new instance of the collection
+// with an identical list of models
+clone: collection.clone()
+
+// fetch the default set of models for this collection
+// from the server, setting them on the collection when they arrive
+fetch: collection.fetch([options])
+
+// "add", "request" for senting new model to the server,
+// "sync" respond the successful creation of the model
+create: collection.create(attributes, [options])
+
+/************************** View ********************************/
+/************************** Events ********************************/
+/************************** Router ********************************/
