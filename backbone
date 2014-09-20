@@ -214,4 +214,48 @@ delegateEvents: delegateEvents([events])
 undelegateEvents: undelegateEvents()
 
 /************************** Events ********************************/
+// bind a callback function to an object
+on: obejct.on(event, callback, [context])
+   -> book.on("change:title", ...);
+   -> model.on('change', this.render, this)
+   -> book.on({
+         'change:title': titleView.update,
+         'change:author': authorPanel.update,
+         'destroy': bookView.remove
+      });
+
+// remove a previously-bound callback function from an object
+off: object.off([event], [callback], [context])
+     ->// Removes just the `onChange` callback.
+        object.off("change", onChange);
+
+        // Removes all "change" callbacks.
+        object.off("change");
+
+        // Removes the `onChange` callback for all events.
+        object.off(null, onChange);
+
+		// Removes all callbacks for `context` for all events.
+		object.off(null, null, context);
+
+		// Removes all callbacks on `object`.
+		object.off();
+
+ // trigger callbacks for the given event
+ trigger: object.trigger(event, [*args]) 
+
+ // just like on, but causes the bound callback to 
+ // only fire once before being removed
+ once: object.once(event, callback, [context])  
+
+// tell an obejct to listen to a particular event on an other object
+ listenTo: object.listenTo(otehr, event, callback)
+
+//tell an object to stop listening to events
+stopListening: object.stoplistening([other], [event], [callback])
+
+// just like listenTo, but cuases the bound callback
+// to only fire once before being removed
+listenToOnce: object.listenToOnce(otehr, event, callback)
+
 /************************** Router ********************************/
