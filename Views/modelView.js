@@ -1,7 +1,7 @@
 /**
  * Created by xianlin on 8/5/14.
  */
-var PriceTableView = Backbone.View.extend({
+var ModelView = Backbone.View.extend({
     el: 'table',
 
     initialize:function() {
@@ -10,7 +10,7 @@ var PriceTableView = Backbone.View.extend({
 
     render: function() {
         var html='';
-        html+=this.template(this.model.attributes);
+        html += this.template(this.model.attributes);
         this.$el.find('#listBody').append(html);
         return this;
     }

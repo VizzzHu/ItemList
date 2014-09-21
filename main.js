@@ -29,8 +29,8 @@ priceList3.set({
 //create Collections
 var priceLists = new PriceLists ([
     priceList1,
-    priceList3,
-    priceList2
+    priceList2,
+    priceList3
 ]);
 
 // create views

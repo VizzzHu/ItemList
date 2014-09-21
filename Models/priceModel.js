@@ -15,6 +15,7 @@ var PriceList = Backbone.Model.extend({
         sPrice:0,
         dPrice:0
     },
+    url: 'PriceList',
 
     initialize: function() {
         this.on('change', function() {

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css"></head>
+
+<meta name="description" content="">
+<script src="lib/jquery.js"></script>
+<script src="lib/underscore.js"></script>
+<script src="lib/backbone.js"></script>
+
+</head>
+<body>
+
+<h2>My item lists</h2>
+<a id="newBtn" class="btn add">New</a>
+<table class="listTable">
+    <thead>
+        <td>产品原名</td>
+        <td>产品中文名</td>
+        <td>大小</td>
+        <td>类型</td>
+        <td>数量</td>
+        <td>运输价</td>
+        <td>成本价</td>
+        <td>卖出价</td>
+        <td>优惠价</td>
+        <td></td>
+        <td></td>
+    </thead>
+    <tbody id="listBody">
+    </tbody>
+</table>
+
+<script type="text/template" id="item-template" class = 'item-table'>
+        <tr>
+            <td><%=  itemEng%></td>
+            <td><%=  itemCh%></td>
+            <td><%=  size%></td>
+            <td><%=  type%></td>
+            <td><%=  quantity%></td>
+            <td><%=  shipping%></td>
+            <td><%=  bPrice%></td>
+            <td><%=  sPrice%></td>
+            <td><%=  dPrice%></td>
+            <td><a id="editBtn" class="btn">Edit</a></td>
+            <td><a id="deleteBtn" class="btn">Delete</a></td>
+        </tr>
+</script>
+<script type="text/template" id="item-new" >
+    <tr class = 'item-new-tr'>
+        <td class = 'item-new-td'><input type="text" id = 'itemEng' value = 'item' ></td>
+        <td class = 'item-new-td'><input type="text" id = 'itemCh' ></td>
+        <td class = 'item-new-td'><input type="text"  id = 'size' ></td>
+        <td class = 'item-new-td'><input type="text" id = 'type'></td>
+        <td class = 'item-new-td'><input type="text" id="quantity"></td>
+        <td class = 'item-new-td'><input type="text" id="shipping"></td>
+        <td class = 'item-new-td'><input type="text" id="bPrice" ></td>
+        <td class = 'item-new-td'><input type="text" id="sPrice"></td>
+        <td class = 'item-new-td'><input type="text" id="dPrice"></td>
+        <td class = 'item-new-td'><a id="saveBtn" class="btn save">Save</a></td>
+        <td class = 'item-new-td'><a id="cancelBtn" class="btn cancel">Cancel</a></td>
+    </tr>
+</script>
+<script src="Models/priceModel.js"></script>
+<script src="Collection/priceCollection.js"></script>
+<script src="Views/modelView.js"></script>
+<script src="Views/collectionTableView.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
