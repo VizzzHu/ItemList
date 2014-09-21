@@ -5,10 +5,7 @@ var PriceView = Backbone.View.extend({
     el: 'body',
 
     initialize: function() {
-        this.template = _.template($('#item-new').html());
-        for(var i=0; i<this.collection.models.length; i++) {
-            this.addItem(this.collection.models[i]);
-        }
+        this.render(); // collection render
     },
 
     events: {
@@ -17,16 +14,19 @@ var PriceView = Backbone.View.extend({
         "click .cancel": "cancelAddItem"
     },
 
+    // add one model render one
     addItem: function(model) {
         var newItemView = new ModelView({model: model})
             .render();
     },
 
+    // add one new item with input box
     addNewItem: function(e) {
-        //window.location = 'addNewItem.html';
-        this.render();
+        this.template = _.template($('#item-new').html());
+        this.addNewItemRender();
     },
 
+    // save item by adding model
     saveItem: function(e) {
         var newItem = new PriceList();
         var saveItem = new PriceList();
@@ -37,9 +37,7 @@ var PriceView = Backbone.View.extend({
             newItem.attributes[eachInputBox.id] = eachInputBox.value;
         });
 
-        // existingModel = this.collection.addModel(newItem);
-        this.collection.create(newItem.toJSON());
-        newItem.save();
+         existingModel = this.collection.addModel(newItem);
 
         if (!existingModel) {
             this.addItem(newItem);
@@ -49,15 +47,23 @@ var PriceView = Backbone.View.extend({
         }
     },
 
+    // cancel the added item to be saved
     cancelAddItem: function(e) {
-        this.$('.listTableForNewItem').empty();
+        this.$('.item-new-tr').empty();
+    }, 
+
+    // collection render by rendering each model
+    render: function() {
+        for(var i=0; i<this.collection.models.length; i++) {
+            this.addItem(this.collection.models[i]);
+        } 
     },
 
-    render: function() {
+    // render the added new row by clicking "New" button
+    addNewItemRender: function() {
         var html='';
         html+=this.template();
         this.$el.find('.listTable').append(html);
         return this;
     }
-
 });

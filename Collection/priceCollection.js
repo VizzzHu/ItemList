@@ -19,5 +19,4 @@ var PriceLists = Backbone.Collection.extend({
         }
         return existingModel;
     }
-
 });
